@@ -1,22 +1,33 @@
-#!/usr/bin/env bash
+#!usr/bin/bash
+# This is the guessing game made by burhanuddin kapadwala 
 
-function guess(){
-    true_ans=$(ls -l |grep "^-"|wc -l)
-    while true;
-    do
-        echo "pleas enter your guess"
-        read  number
-        if [ $number -lt $true_ans ]
-        then
-            echo "your guess is Less then the true number"
-        elif [ $number -gt $true_ans ]
-        then
-            echo "your guess is Greater then the true number"
+function main(){
+while true
+do
+	echo "please enter your guess:"
+	read guess
+	if [[ $guess =~ [^0-9] ]]
+	then
+		echo "$guess is not an Int"
+	elif [[ $guess -eq $num ]]
+	then
+		echo "congratulations!!!!!!!!!!!!!!!!!!!!!"
+		echo "Your answer is correct!!!!!!!!!!!!!!!!!!!!!!!"
+		break
+	elif [[ $guess -gt $num ]]
+	then
+		echo "$guess is too high "
         else
-            echo " congratulation,you are right!"
-        break;
-        fi
-    done
+       	        echo "$guess is too low"
+	fi
+done
 }
-echo "guess the files number in the current directory!"
-guess
+
+echo "@@@@@@@ GAME START @@@@@@@@"
+echo "Guess the number of files"
+echo "in the current directory."
+num=$(ls -l|grep "^-"|wc -l)
+guess=-1
+main
+
+echo "@@@@@@@@  GAME END  @@@@@@@@@"
