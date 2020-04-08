@@ -1,5 +1,5 @@
-# Burhanuddin-
-GuessingGame
-Tuesday 07-04-2020
+Create date:
+Wed Apr 8 20:14:35 CST 2020
 
-21
+Number of lines in guessinggame.sh file:
+34
